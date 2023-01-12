@@ -1,0 +1,153 @@
+1º)Crie um programa que receba a medida dos lados de um triângulo, e que use uma função para descobrir que tipo de triângulo é. 
+
+Tipos de triângulos: 
+
+Equilátero – Três lados iguais 
+
+Isósceles – Dois lados iguais 
+
+Escaleno – Três lados diferentes
+"""
+
+def triangulo ():
+    if tam1 == tam2 and tam1 == tam3:
+        return 'Equilátero'
+    elif tam1 == tam2 or tam1 == tam3 or tam2 == tam3 :
+        return 'Isósceles'
+    else:
+        return 'Escaleno'
+
+tam1 = int(input('Lado 1: '))
+tam2 = int(input('Lado 2: '))
+tam3 = int(input('Lado 3: '))
+
+print(triangulo())
+
+"""2º) Crie um programa que receba os dados de um cliente: Nome, RG, CPF e telefone e armazene em uma lista. Após receber todos os dados, você usar uma função para ler os dados e imprimir um a um. """
+
+dados = []
+def Clientes ():
+    nome = str(input("Nome do Cliente: "))
+    dados.append(nome)
+    rg = int(input("Número do RG: "))
+    dados.append(rg)
+    cpf = int(input("Número do CPF: "))
+    dados.append(cpf)
+
+    return dados
+
+
+print(Clientes ())
+
+"""3º) Crie um programa que peça ao cliente para escolher o lanche de sua preferência 1 – Hamburguer com fritas, 2 – Hot dog completo, 3 – Cheeseburguer com fritas. Caso o usuário escolha um número diferente destes você deve informar que a opção é inválida, senão, deve informar o preço a pagar, conforme a escolha: 1 – 10,00, 2 – 20,00, 3 – 30,00. """
+
+def lanch (lanche):
+    if lanche == 1:
+        return ('Hamburguer com fritas = R$ 10.00')
+    elif lanche == 2:
+        return ('Hot dog completo = R$ 20.00')
+    elif lanche == 3:
+        return ('Cheeseburguer com fritas = R$ 30.00')
+    else:
+        return 'OPÇÃO INVÁLIDA'
+
+print('''           
+            ----------------------------------
+                1 – Hamburguer com fritas, 
+            ----------------------------------
+                2 – Hot dog completo,
+            ----------------------------------
+                3 – Cheeseburguer com fritas.     
+            ----------------------------------
+
+''')
+lanche = int(input('Escolha seu lanche: '))
+print(lanch(lanche))
+
+"""4º) Crie um programa para receber o número de lados de um polígono, e busque em uma lista o nome do polígono. A lista deve ter os seguintes itens: 
+
+3 LADOS – TRIÂNGULO 
+
+4 LADOS – QUADRILÁTERO 
+
+5 LADOS – PENTÁGONO 
+
+6 LADOS – HEXÁGONO 
+
+7 LADOS – HEPTÁGONO 
+
+8 LADOS – OCTÓGONO 
+"""
+
+def poligono (tam):
+    lista = ['Triangulo', 'Quadrilatero', 'Pentágono', 'Hexágono', 'Heptágono', 'Octágono']
+    tam == None
+
+    if tam == 3:
+        return lista[0]
+    elif tam == 4:
+        return lista[1]
+    elif tam == 5:
+        return lista[2]
+    elif tam == 6:
+        return lista[3]
+    elif tam == 7:
+        return lista[4]
+    elif tam == 8:
+        return lista[5]
+    else:
+        return 'Erro. Polígono não está na lista.'
+        
+
+tamanho = int(input('Tamanho: '))
+print(poligono(tamanho))
+
+"""5º) Crie um programa que solicite ao cliente o valor a pagar, o número de parcelas e o meio de pagamento (1 – DÉBITO, 2 – CRÉDITO, 3 – PIX, 4 – DINHEIRO).   
+
+O número máximo de parcelas deve ser 12, caso o cliente digite um número superior a 12, informe que esta quantidade é invalida e solicite novamente até que ele digite uma quantidade de parcelas correta. 
+
+Use uma função para calcular o valor de cada parcela, aplicando um desconto de 5% para o pagamento em dinheiro ou PIX. 
+
+Informe ao cliente o valor total a pagar (com desconto se houver), o valor de cada parcela, e o meio de pagamento escolhido. 
+"""
+
+def pagar (pagamento): 
+    if pagamento == 1: 
+        return 'debito' 
+    elif pagamento == 2: 
+        return 'credito'
+    elif pagamento == 3: 
+        return 'pix'
+    else: 
+        return 'dinheiro' 
+
+def value (valor, pagamento, parcelas):
+    if pagamento == 3 or pagamento == 4:
+        v = ((valor * 95) / 100 ) / parcelas
+    elif pagamento == 1 or pagamento == 2:
+        v = valor / parcelas
+    return v
+
+
+valor = int(input('Insira valor: '))
+
+print('''                   
+            -------------------
+                1 - Débito
+            -------------------
+                2 - Crédito
+            -------------------
+                3 - Pix
+            -------------------
+                4 - Dinheiro
+            -------------------
+''')
+pagar = int(input('Qual o meio de pagamento: '))
+parcelas = int(input('Em quantas parcelas desejas: ')) 
+while parcelas > 12:
+    print('Número de parcelas inválido')
+    parcelas = int(input('Qual o número de parcelas: '))
+
+print(f'Dividido em {parcelas} parcelas')
+
+print('O valor das parcelas será de R$ {:,.2f} cada.'.format(value(valor, pagar, parcelas)))
