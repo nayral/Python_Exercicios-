@@ -56,5 +56,3 @@ O número máximo de parcelas deve ser 12, caso o cliente digite um número supe
 Use uma função para calcular o valor de cada parcela, aplicando um desconto de 5% para o pagamento em dinheiro ou PIX. 
 
 Informe ao cliente o valor total a pagar (com desconto se houver), o valor de cada parcela, e o meio de pagamento escolhido. 
-
-My work
